@@ -1,4 +1,7 @@
 venv/
 
+# mac
+*.DS_Store
+
 *.pyc
 __pycache__/
