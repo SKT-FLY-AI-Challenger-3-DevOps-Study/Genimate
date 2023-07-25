@@ -1,11 +1,26 @@
 import uvicorn
 from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
 
 from app.user import user_router
+from app.email import email_router
 
 app = FastAPI()
 
+origins = [
+    "*"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(user_router, prefix='/user')
+app.include_router(email_router, prefix='/email')
 
 @app.get("/")
 async def index():
