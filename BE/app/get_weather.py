@@ -22,9 +22,9 @@ params = {
 }
 
 SKY_MAP = {
-    '1' : 'A sktadot enjoying a picnic under a clear blue sky', # 맑음
-    '3' : 'A sktadot walking under the many of clouds, cloudy day, blue sky, perfect face', # 구름 많은
-    '4' : 'A sktadot walking under the clouds, dark cloudy day, perfect face' # 흐림
+    '1' : '', # 맑음
+    '3' : 'cloudy day', # 구름 많은
+    '4' : 'dark cloudy day' # 흐림
 }
     
 PTY_MAP = {
@@ -37,7 +37,9 @@ PTY_MAP = {
 
 
 def forecast():
-    weather_data = dict()
+    prompt = ''
+    pty = ''
+    sky = ''
     try:
         res = requests.get(url, params=params)
         xml_data = res.text
@@ -46,14 +48,16 @@ def forecast():
         for item in dict_data['response']['body']['items']['item']:
             if item['fcstTime'] != '0700':
                 continue
-            if item['category'] == 'SKY':
-                weather_data['sky'] = SKY_MAP[item['fcstValue']]
+
             if item['category'] == 'PTY':
-                weather_data['sky2'] = PTY_MAP[item['fcstValue']]
+                pty = PTY_MAP[item['fcstValue']] 
+            if item['category'] == 'SKY':
+                sky = SKY_MAP[item['fcstValue']]
+
+        prompt = pty + ', ' + sky
+
     except Exception as e:
         print(e)
-        weather_data = dict()
+        prompt = None
     finally:
-        return weather_data
-
-print(forecast())
+        return prompt
