@@ -9,7 +9,7 @@ from fastapi import APIRouter
 from apscheduler.schedulers.background import BackgroundScheduler
 import os
 
-import get_weather
+from app import get_weather
 
 generate_router = APIRouter()
 scheduler = BackgroundScheduler()
