@@ -47,7 +47,7 @@ def generate_adot(prompt:str, seed:int):
     pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(pipe.scheduler.config)
     patch_pipe(
         pipe,
-        "AI/models/final_lora.safetensors",
+        "models/final_lora.safetensors",
         patch_text=True,
         patch_ti=True,
         patch_unet=True,
@@ -77,7 +77,7 @@ def run():
 async def generate_scheduler():
     scheduler.add_job(run, 'cron', hour=15, minute=15, timezone="Asia/Seoul")
     scheduler.start()
-    
+
 @generate_router.on_event("shutdown")
 async def shutdown_scheduler():
     scheduler.shutdown()
