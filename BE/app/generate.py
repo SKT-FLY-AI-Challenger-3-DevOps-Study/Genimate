@@ -75,7 +75,7 @@ def run():
 
 @generate_router.on_event("startup")
 async def generate_scheduler():
-    scheduler.add_job(run, 'cron', hour=15, minute=15, timezone="Asia/Seoul")
+    scheduler.add_job(run, 'cron', hour=2, minute=0, timezone="Asia/Seoul")
     scheduler.start()
 
 @generate_router.on_event("shutdown")

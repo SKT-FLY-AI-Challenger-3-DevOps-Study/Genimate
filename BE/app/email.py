@@ -88,7 +88,7 @@ def send_emails():
 
 @email_router.on_event("startup")
 async def send_email_scheduler():
-    scheduler.add_job(send_emails, 'cron', hour=15, minute=15, timezone="Asia/Seoul")
+    scheduler.add_job(send_emails, 'cron', hour=7, minute=0, timezone="Asia/Seoul")
     scheduler.start()
 
 @email_router.on_event("shutdown")
