@@ -6,4 +6,4 @@ pip3 install git+https://github.com/cloneofsimo/lora.git
 WORKDIR /usr/src/app
 COPY . .
 
-CMD ["gunicorn", "--bind", "0:8000", "main:app", "--worker-class", "uvicorn.workers.UvicornWorker"]
+CMD ["gunicorn", "--bind", "unix:/tmp/genimateapi.sock", "main:app", "--worker-class", "uvicorn.workers.UvicornWorker"]
