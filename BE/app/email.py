@@ -56,7 +56,7 @@ def send_email(mail):
                     {datetime.now().strftime('%Y년 %m월 %d일, %A')}
                 </div>
                 <hr>
-                <h3>사진을 보고 추측하던가 ㅋㅋ</h3>
+                <h3>그림을 보고 맞춰보세요!</h3>
                 <img src="cid:image1" alt="Image 1">
             </div>
         </body>
