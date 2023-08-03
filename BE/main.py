@@ -4,7 +4,6 @@ from starlette.middleware.cors import CORSMiddleware
 
 from app.user import user_router
 from app.email import email_router
-from app.generate import generate_router
 
 app = FastAPI()
 
@@ -22,7 +21,6 @@ app.add_middleware(
 
 app.include_router(user_router, prefix='/user')
 app.include_router(email_router, prefix='/email')
-app.include_router(generate_router, prefix='/generate')
 
 @app.get("/")
 async def index():
