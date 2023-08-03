@@ -11,6 +11,8 @@ from dotenv import load_dotenv
 from database.database import SessionLocal
 from database.query import read_all_emails
 
+from app.generate import run
+
 load_dotenv(os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)), ".env"))
 
 email_router = APIRouter()
@@ -56,8 +58,9 @@ def send_email(mail):
                     {datetime.now().strftime('%Y년 %m월 %d일, %A')}
                 </div>
                 <hr>
-                <h3>그림을 보고 맞춰보세요!</h3>
+                <h3>이미지를 보고 맞춰보세요!</h3>
                 <img src="cid:image1" alt="Image 1">
+                <p>위 이미지는 이메일 수신자마다 달라요!</p>
             </div>
         </body>
     </html>
@@ -84,6 +87,7 @@ def send_emails():
     emails = read_all_emails(db)
     for email in emails:
         print(email.email)
+        run()
         send_email(email.email)
 
 @email_router.on_event("startup")

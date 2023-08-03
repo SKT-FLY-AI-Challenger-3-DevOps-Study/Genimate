@@ -2,17 +2,11 @@ import torch
 from diffusers import StableDiffusionPipeline, EulerAncestralDiscreteScheduler
 import numpy as np
 from lora_diffusion import patch_pipe, tune_lora_scale
-from PIL import Image
 from random import uniform
 from datetime import datetime
-from fastapi import APIRouter
-from apscheduler.schedulers.background import BackgroundScheduler
 import os
 
 from app import get_weather
-
-generate_router = APIRouter()
-scheduler = BackgroundScheduler()
 
 def device_loader():
     print(torch.cuda.is_available())
@@ -72,12 +66,3 @@ def run():
         result = generate_adot(prompt, seed)
 
     result.save(os.path.join('images', datetime.now().strftime("%Y%m%d%H%M%S") + '.png'))
-
-@generate_router.on_event("startup")
-async def generate_scheduler():
-    scheduler.add_job(run, 'cron', hour=2, minute=0, timezone="Asia/Seoul")
-    scheduler.start()
-
-@generate_router.on_event("shutdown")
-async def shutdown_scheduler():
-    scheduler.shutdown()
