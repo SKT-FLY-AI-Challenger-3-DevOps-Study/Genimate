@@ -1,5 +1,7 @@
 venv/
 
+# mac
+*.DS_Store
 sqlite3.db
 .env
 
