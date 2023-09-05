@@ -1,0 +1,8 @@
+[2023-07-31 15:54:11,153.153] INFO [139712373692224] - Created a temporary directory at /tmp/tmpvu5q02zo
+[2023-07-31 15:54:11,153.153] INFO [139712373692224] - Writing /tmp/tmpvu5q02zo/_remote_module_non_scriptable.py
+[2023-07-31 15:54:12,522.522] INFO [139712373692224] - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+[2023-07-31 15:54:12,523.523] INFO [139712373692224] - Added job "send_emails" to job store "default"
+[2023-07-31 15:54:12,523.523] INFO [139712373692224] - Scheduler started
+[2023-07-31 15:54:12,524.524] INFO [139712373692224] - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+[2023-07-31 15:54:12,524.524] INFO [139712373692224] - Added job "run" to job store "default"
+[2023-07-31 15:54:12,524.524] INFO [139712373692224] - Scheduler started
