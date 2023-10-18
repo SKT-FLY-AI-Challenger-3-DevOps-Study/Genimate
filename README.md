@@ -68,7 +68,7 @@
             <td><b>Backend</b></td>
         </tr>
         <tr>
-            <td width="200">정인아 적어줘</td>
+            <td width="200">에이닷 캐릭터 이미지 수집 및 정제(110장)<br/>Stable Diffusion LoRa 기반 Fine-Tuning<br/>Hyperparameter Tuning<br/>Fluter 기반 웹 프론트엔드 개발<br/></td>
             <td width="200">FastAPI를 활용한 API 개발<br/>기상청 API 연동 / AI 모델 연동<br/>SMTP를 활용한 레터링 서비스 구현<br/>Docker를 활용한 컨테이너화</td>
         </tr>
     </tbody>
